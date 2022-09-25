@@ -5,19 +5,19 @@
 
 class Comp {
 public:
-	Comp(double Re = 0, double Im = 0) : Re_(Re), Im_(Im) {} 	//Конструктор
-	Comp(Comp const& c) : Re_(c.Re_), Im_(c.Im_) {}   //Конструктор копирования
-	Comp& operator=(Comp const& c) {  	        //Оператор присваивания
+	Comp(double Re = 0, double Im = 0) : Re_(Re), Im_(Im) {} 	//Constructor
+	Comp(Comp const& c) : Re_(c.Re_), Im_(c.Im_) {}   //Copy constructor
+	Comp& operator=(Comp const& c) {  	        //= operator
 		if (this != &c) {
 			Re_ = c.Re_;
 			Im_ = c.Im_;
 		}
 		return *this;
-	}
-	double operator[](size_t i) const{
+	}                                       
+	double operator[](size_t i) const{ //index operator
 		return i == 0 ? Re_ : Im_;
 	}
-	friend std::ostream& operator<<(std::ostream& out, Comp const& c);
+	friend std::ostream& operator<<(std::ostream& out, Comp const& c); //Output operator
 private:
 	double Re_;
 	double Im_;

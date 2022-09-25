@@ -4,7 +4,7 @@
 
 class Matrix {
 public:
-	//конструктор по умолчанию
+	//Default constructor
 	Matrix() : size_(3) {
 		matr = new int* [size_];
 		for (size_t i = 0; i < size_; ++i) {
@@ -14,7 +14,7 @@ public:
 			}
 		}
 	}
-	//конструктор
+	//Constructor with parameters
 	Matrix(int** m) : size_(3) {
 		matr = new int* [size_];
 		for (size_t i = 0; i < size_; ++i) {
@@ -24,13 +24,13 @@ public:
 			}
 		}
 	}
-	//деструктор
+	//Destructor
 	~Matrix() {
 		for (size_t i = 0; i < size_; ++i)
 			delete[] matr[i];
 		delete[] matr;
 	}
-	//конструктор копирования
+	//Copy construct
 	Matrix(Matrix const& m) {
 		size_ = m.size_;
 		matr = new int*[size_];
@@ -38,7 +38,7 @@ public:
 			matr[i] = new int[size_];
 		}
 	}
-	//оператор присваивания
+	//= operator
 	Matrix& operator=(Matrix const& m) {
 		if (this != &m) {
 			for (size_t i = 0; i < size_; ++i)
@@ -56,6 +56,7 @@ public:
 	double get(int i, int j) const{
 		return matr[i][j];
 	}
+	//Output operator
 	friend std::ostream& operator<<(std::ostream& out, Matrix const& m);
 private:
 	size_t size_;
