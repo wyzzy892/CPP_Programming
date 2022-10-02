@@ -2,7 +2,6 @@
 #include "matrix.hpp"
 #include <random>
 
-//For array initialization
 int** initialize_array(int** a);
 
 int main()

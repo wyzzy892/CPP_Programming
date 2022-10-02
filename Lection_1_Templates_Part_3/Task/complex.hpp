@@ -5,25 +5,15 @@
 class Complex {
 public:
 	//default constructor
-	Complex(double Re = 0, double Im = 0) :Re_(Re), Im_(Im) { }
-	//constructor with parameters
-	Complex(Complex const& c) :Re_(c.Re_), Im_(c.Im_) { }
+	Complex(double Re, double Im);
+	//copy constructor
+	Complex(Complex const& c);
 	//= operator
-	Complex& operator=(Complex const& c) {
-		if (this != &c) {
-			Re_ = c.Re_;
-			Im_ = c.Im_;
-		}
-		return *this;
-	}
+	Complex& operator=(Complex const& c);
 	//index operator
-	double operator[](size_t i) const { //index operator
-		return i == 0 ? Re_ : Im_;
-	}
+	double operator[](size_t i) const;
 	//+operator
-	Complex operator+(Complex const& c) const{
-		return Complex(Re_+c.Re_, Im_+c.Im_);
-	}
+	Complex operator+(Complex const& c) const;
 	//output operator
 	friend std::ostream& operator<<(std::ostream& out, Complex const& c); //Output operator
 
@@ -32,12 +22,5 @@ private:
 	double Im_;
 };
 
-inline std::ostream& operator<<(std::ostream& out, Complex const& c) {
-	if (c.Im_ < 0)
-		out << c.Re_ << c.Im_ << "i";
-	else
-		out << c.Re_ << "+" << c.Im_ << "i";
-	return out;
-}
 #endif // !COMPLEX_HPP
 
