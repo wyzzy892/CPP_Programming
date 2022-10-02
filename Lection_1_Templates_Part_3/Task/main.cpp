@@ -2,15 +2,8 @@
 #include "matrix.hpp"
 #include <random>
 
-int** initialize_array(int** a) {
-	for (size_t i = 0; i < 2; i++) {
-		a[i] = new int[2];
-		for (size_t j = 0; j < 2; j++) {
-			a[i][j] = rand() % 10;
-		}
-	}
-	return a;
-}
+//For array initialization
+int** initialize_array(int** a);
 
 int main()
 {
@@ -61,4 +54,14 @@ int main()
 	std::cout << ::add("Hello", " there") << std::endl;
 
 	return 0;
+}
+
+int** initialize_array(int** a) {
+	for (size_t i = 0; i < 2; i++) {
+		a[i] = new int[2];
+		for (size_t j = 0; j < 2; j++) {
+			a[i][j] = rand() % 10;
+		}
+	}
+	return a;
 }
