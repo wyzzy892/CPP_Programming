@@ -28,6 +28,12 @@ public:
 			for (size_t j = 0; j < 2; j++)
 				data_[i][j] = m.data_[i][j];
 	}
+	//destructor
+	~Matrix(){
+		for(size_t i=0; i<2; i++)
+			delete[] data_[i];
+		delete[] data_;
+	}
 	//= operator
 	Matrix& operator=(Matrix const& m) {
 		if (this != &m) {
