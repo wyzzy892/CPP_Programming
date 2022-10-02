@@ -24,6 +24,12 @@ Matrix::Matrix(Matrix const& m) : data_(m.data_) {
 			data_[i][j] = m.data_[i][j];
 }
 
+Matrix::~Matrix(){
+	for(size_t i=0; i<2; i++)
+		delete[] data_[i];
+	delete[] data_;
+}
+
 Matrix& Matrix::operator=(Matrix const& m) {
 	if (this != &m) {
 		for (size_t i = 0; i < 2; i++)

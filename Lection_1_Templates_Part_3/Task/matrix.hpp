@@ -10,6 +10,8 @@ public:
 	Matrix(int** a);
 	//copy constructor
 	Matrix(Matrix const& m);
+	//destructor
+	~Matrix();
 	//= operator
 	Matrix& operator=(Matrix const& m);
 	//+ operator
