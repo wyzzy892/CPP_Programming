@@ -28,9 +28,9 @@ private:
 	}
 public:
 	Queue();
-	Queue(Queue const& q);
+	Queue(const Queue& q);
 	~Queue();
-	Queue& operator=(Queue const& q);
+	Queue& operator=(const Queue& q);
 
 	// Capacity
 	size_t size() const;
@@ -43,16 +43,8 @@ public:
 	// Modifiers
 	void push(T const& value);
 	void pop();
-	void swap(Queue& c) {
-		std::swap(count, c.count);
-		std::swap(capacity, c.capacity);
-		std::swap(head, c.head);
-		std::swap(last, c.last);
-		auto tmp = c;
-		c = this;
-		*this = tmp;
-	}
-
+	void swap(Queue& other);
+	friend void swap(Queue<T>& a, Queue<T>& b);
 };
 
 template<class T>
@@ -65,7 +57,7 @@ Queue<T>::Queue()
 	data = new T[capacity];
 }
 template<class T>
-Queue<T>::Queue(Queue const& q)
+Queue<T>::Queue(const Queue<T>& q)
 {
 	delete[] data;
 	count = q.count;
@@ -82,8 +74,8 @@ Queue<T>::~Queue()
 	delete[] data;
 }
 template<class T>
-Queue<T>& Queue<T>::operator=(Queue const& q) {
-	if (this != q) {
+Queue<T>& Queue<T>::operator=(const Queue<T>& q) {
+	if (this != &q) {
 		delete[] data;
 		count = q.count;
 		capacity = q.capacity;
@@ -135,6 +127,19 @@ void Queue<T>::pop() {
 	assert(!empty());
 	head++;
 	count--;
+}
+template<class T>
+void Queue<T>::swap(Queue<T>& other) {
+	Queue<T> tmp = other;
+	other = *this;
+	*this = tmp;
+}
+
+template<class T>
+inline void swap(Queue<T>& a, Queue<T>& b) {
+	Queue<T> tmp = a;
+	a = b;
+	b = tmp;
 }
 #endif // !QUEUE_HPP
 
