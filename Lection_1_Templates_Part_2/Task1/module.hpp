@@ -1,7 +1,7 @@
 #ifndef MODULE_HPP
 #define MODULE_HPP
 #include "matrix.hpp"
-#include "comp.hpp"
+#include "complex.hpp"
 #include <cmath>
 
 //abs
@@ -12,16 +12,14 @@ double my_module(T const& value) {
 
 //|x+iy|
 template<>
-double my_module(Comp const&value) {
+double my_module(Complex const&value) {
 	return sqrt(value[0] * value[0] + value[1] * value[1]);
 }
 
 //det(M)
 template<>
 double my_module(Matrix const& m) {
-	double r1 = m.get(0, 0) * m.get(1, 1) * m.get(2, 2) + m.get(0, 1) * m.get(1, 2) * m.get(2, 0) + m.get(0, 2) * m.get(1, 0) * m.get(2, 1);
-	double r2 = m.get(0, 2) * m.get(1, 1) * m.get(2, 0) + m.get(0, 1) * m.get(1, 0) * m.get(2, 2) + m.get(0, 0) * m.get(1, 2) * m.get(2, 1);
-	return r1 - r2;
+	return m.get(0,0)*m.get(1,1)-m.get(0,1)*m.get(1,0);
 }
 
 #endif // !MODULE_HPP

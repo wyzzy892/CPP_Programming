@@ -26,7 +26,5 @@ int main()
 	std::cout << "d1 = " << d1 << ", d2 = " << d2 << ", d1*d2 = ";
 	mult(d1, d2);
 
-
-
 	return 0;
 }
