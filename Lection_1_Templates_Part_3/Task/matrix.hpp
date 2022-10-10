@@ -18,6 +18,8 @@ public:
 	Matrix operator+(Matrix const& m) const;
 	//output operator
 	friend std::ostream& operator<<(std::ostream& out, Matrix const& m);
+	//get(i, j)
+	double get(int i, int j) const;
 private:
 	//size_t size_ = 2;
 	int** data_;

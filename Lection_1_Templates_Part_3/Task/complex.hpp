@@ -4,17 +4,19 @@
 
 class Complex {
 public:
-	//default constructor
+	// default constructor
+	Complex();
+	// with parameters
 	Complex(double Re, double Im);
-	//copy constructor
+	// copy constructor
 	Complex(Complex const& c);
-	//= operator
+	// = operator
 	Complex& operator=(Complex const& c);
-	//index operator
+	// index operator
 	double operator[](size_t i) const;
-	//+operator
+	// +operator
 	Complex operator+(Complex const& c) const;
-	//output operator
+	// output operator
 	friend std::ostream& operator<<(std::ostream& out, Complex const& c); //Output operator
 
 private:

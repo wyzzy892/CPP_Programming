@@ -63,3 +63,7 @@ std::ostream& operator<<(std::ostream& out, Matrix const& m) {
 	}
 	return out;
 }
+
+double Matrix::get(int i, int j) const {
+	return data_[i][j];
+}

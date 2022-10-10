@@ -1,6 +1,8 @@
 #include "complex.hpp"
 
-Complex::Complex(double Re = 0, double Im = 0) :Re_(Re), Im_(Im) { }
+Complex::Complex() :Re_(0), Im_(0) { }
+
+Complex::Complex(double Re, double Im) :Re_(Re), Im_(Im) { }
 
 Complex::Complex(Complex const& c) :Re_(c.Re_), Im_(c.Im_) { }
 
