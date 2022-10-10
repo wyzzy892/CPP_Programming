@@ -142,4 +142,3 @@ inline void swap(Queue<T>& a, Queue<T>& b) {
 	b = tmp;
 }
 #endif // !QUEUE_HPP
-
