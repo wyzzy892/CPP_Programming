@@ -2,16 +2,13 @@
 #include <string>
 #include "my_templ.hpp"
 
-struct A{};
-struct B{};
-
 int main()
 {
 	int a = 2;
 	int b = 11;
 	
 	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min(1.0, 4.) << std::endl;
+	std::cout << "min( a, b ) = " << ::min(a, b) << std::endl;
 	std::cout << "max( a, b ) = " << ::max(a, b) << std::endl;
 
 	double s = 34.7;
