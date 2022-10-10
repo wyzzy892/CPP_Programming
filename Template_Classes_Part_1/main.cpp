@@ -4,7 +4,6 @@
 
 int main()
 {
-	
 	Queue<int> q;
 	std::cout << "q size = " << q.size() << std::endl<<"q = ";
 	for (size_t i = 0; i < 5; i++) {
