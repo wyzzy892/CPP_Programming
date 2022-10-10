@@ -1,7 +1,6 @@
 #ifndef MY_TEMPL_HPP
 #define MY_TEMPL_HPP
 
-//Task1
 //swap
 template<typename T>
 void swap(T& a, T& b) {
@@ -11,14 +10,14 @@ void swap(T& a, T& b) {
 }
 
 //min
-template<typename T>
-T min(T a, T b) {
+template<typename T1, typename T2>
+auto min(T1 a, T2 b) -> decltype(a < b ? a : b) {
 	return a < b ? a : b;
 }
 
 //max
-template<typename T>
-T max(T a, T b) {
+template<typename T1, typename T2>
+auto max(T1 a, T2 b) -> decltype(a > b ? a : b) {
 	return a > b ? a : b;
 }
 #endif
